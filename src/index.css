@@ -1,0 +1,38 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/*
+ * Rem baseline: at exactly 2560×1440, 1rem === 16px.
+ * Scale factor = min(viewport / artboard) so the layout scales uniformly.
+ */
+:root {
+  --design-w: 2560;
+  --design-h: 1440;
+}
+
+html {
+  font-size: max(
+    10px,
+    min(
+      calc(100vw * 16 / var(--design-w)),
+      calc(100vh * 16 / var(--design-h))
+    )
+  );
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: 'Figtree', system-ui, sans-serif;
+  font-size: 1rem;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

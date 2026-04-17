@@ -95,39 +95,41 @@ function App() {
       <span className="corner corner-br">ATENCIUM</span>
 
       <div className="step-center">
-        <div key={step} className="step-fade">
-          <h1 className="step-title">{label}</h1>
-          <p className="step-body">{copy}</p>
-        </div>
-        <div className="step-nav" aria-label="Step navigation">
-          <button
-            type="button"
-            className="nav-btn"
-            aria-label="Previous step"
-            disabled={isFirst}
-            onClick={() => go(-1)}
-          >
-            <img
-              src={arrowImg}
-              alt=""
-              className="nav-btn__icon"
-              draggable={false}
-            />
-          </button>
-          <button
-            type="button"
-            className="nav-btn"
-            aria-label="Next step"
-            disabled={isLast}
-            onClick={() => go(1)}
-          >
-            <img
-              src={arrowImg}
-              alt=""
-              className="nav-btn__icon nav-btn__icon--flip"
-              draggable={false}
-            />
-          </button>
+        <div className="step-center-inner">
+          <div key={step} className="step-fade">
+            <h1 className="step-title">{label}</h1>
+            <p className="step-body">{copy}</p>
+          </div>
+          <div className="step-nav" aria-label="Step navigation">
+            <button
+              type="button"
+              className="nav-btn"
+              aria-label="Previous step"
+              disabled={isFirst}
+              onClick={() => go(-1)}
+            >
+              <img
+                src={arrowImg}
+                alt=""
+                className="nav-btn__icon"
+                draggable={false}
+              />
+            </button>
+            <button
+              type="button"
+              className="nav-btn"
+              aria-label="Next step"
+              disabled={isLast}
+              onClick={() => go(1)}
+            >
+              <img
+                src={arrowImg}
+                alt=""
+                className="nav-btn__icon nav-btn__icon--flip"
+                draggable={false}
+              />
+            </button>
+          </div>
         </div>
       </div>
     </div>

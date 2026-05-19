@@ -4,23 +4,8 @@
   box-sizing: border-box;
 }
 
-/*
- * Rem baseline: at exactly 2560×1440, 1rem === 16px.
- * Scale factor = min(viewport / artboard) so the layout scales uniformly.
- */
-:root {
-  --design-w: 2560;
-  --design-h: 1440;
-}
-
 html {
-  font-size: max(
-    10px,
-    min(
-      calc(100vw * 16 / var(--design-w)),
-      calc(100vh * 16 / var(--design-h))
-    )
-  );
+  font-size: 16px;
 }
 
 html,
@@ -28,6 +13,23 @@ body,
 #root {
   height: 100%;
   margin: 0;
+}
+
+#root {
+  position: relative;
+  max-width: 100%;
+  margin: 0 auto;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+#root > * {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
 }
 
 body {

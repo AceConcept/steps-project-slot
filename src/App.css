@@ -3,6 +3,7 @@
 
   position: relative;
   min-height: 100%;
+  height: 100%;
   padding: 1.5625rem;
   font-family: 'Figtree', system-ui, sans-serif;
   color: #000000;
@@ -40,6 +41,10 @@
 .corner-br {
   bottom: 1.5625rem;
   right: 1.5625rem;
+}
+
+.luna-stage--fill .step-center {
+  min-height: 100%;
 }
 
 .step-center {

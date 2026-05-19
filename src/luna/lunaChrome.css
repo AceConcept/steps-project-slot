@@ -1,0 +1,88 @@
+/*
+  App-owned shell: gutters + scaled artboard slot.
+*/
+
+:root {
+  --canvas-w: 160rem;
+  --canvas-h: 90rem;
+}
+
+.luna-root {
+  position: relative;
+  width: 100%;
+  min-height: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: #d8d8d8;
+  --luna-space-left-bg: #d8d8d8;
+  --luna-space-right-bg: #d8d8d8;
+}
+
+.luna-canvas-row {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  width: 100%;
+  flex: 1 1 auto;
+  min-height: 0;
+  height: var(--luna-artboard-slot-height, 100%);
+  overflow: hidden;
+}
+
+.luna-space-left,
+.luna-space-right {
+  flex: 1 1 0;
+  min-width: 0;
+  align-self: stretch;
+  min-height: var(--luna-artboard-slot-height, 100%);
+}
+
+.luna-space-left {
+  background: var(--luna-space-left-bg);
+}
+
+.luna-space-right {
+  background: var(--luna-space-right-bg);
+}
+
+/* Scaled footprint in the flex row; clips the transformed artboard */
+.luna-canvas-row > .luna-design-surface {
+  position: relative;
+  flex: 0 0 auto;
+  width: var(--luna-artboard-slot-width);
+  height: var(--luna-artboard-slot-height);
+  min-width: 0;
+  overflow: hidden;
+}
+
+.luna-canvas-row > .luna-design-surface > .luna-stage {
+  width: var(--canvas-w);
+  height: var(--canvas-h);
+  transform: scale(var(--luna-scale));
+  transform-origin: 0 0;
+  position: relative;
+  z-index: 10;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: auto;
+  box-sizing: border-box;
+}
+
+.luna-canvas-row > .luna-design-surface > .luna-stage.luna-stage--fill {
+  padding: 0;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+}
+
+.luna-canvas-row > .luna-design-surface > .luna-stage.luna-stage--fill > * {
+  flex: 1 1 auto;
+  min-height: 0;
+  min-width: 0;
+  width: 100%;
+}

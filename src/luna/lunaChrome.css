@@ -1,5 +1,5 @@
 /*
-  App-owned shell: gutters + scaled artboard slot.
+  App-owned shell: scaled artboard centered in the viewport.
 */
 
 :root {
@@ -16,8 +16,6 @@
   flex-direction: column;
   overflow: hidden;
   background: #d8d8d8;
-  --luna-space-left-bg: #d8d8d8;
-  --luna-space-right-bg: #d8d8d8;
 }
 
 .luna-canvas-row {
@@ -25,6 +23,7 @@
   display: flex;
   flex-direction: row;
   align-items: flex-start;
+  justify-content: center;
   width: 100%;
   flex: 1 1 auto;
   min-height: 0;
@@ -32,23 +31,6 @@
   overflow: hidden;
 }
 
-.luna-space-left,
-.luna-space-right {
-  flex: 1 1 0;
-  min-width: 0;
-  align-self: stretch;
-  min-height: var(--luna-artboard-slot-height, 100%);
-}
-
-.luna-space-left {
-  background: var(--luna-space-left-bg);
-}
-
-.luna-space-right {
-  background: var(--luna-space-right-bg);
-}
-
-/* Scaled footprint in the flex row; clips the transformed artboard */
 .luna-canvas-row > .luna-design-surface {
   position: relative;
   flex: 0 0 auto;

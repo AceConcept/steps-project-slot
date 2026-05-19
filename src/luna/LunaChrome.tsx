@@ -50,9 +50,7 @@ export function LunaChrome({ children }: LunaChromeProps) {
   return (
     <div ref={layoutRef} className="luna-root">
       <div className="luna-canvas-row">
-        <div className="luna-space-left" aria-hidden="true" />
         <div className="luna-design-surface">{children}</div>
-        <div className="luna-space-right" aria-hidden="true" />
       </div>
     </div>
   )

@@ -1,5 +1,10 @@
 export const STEP_COUNT = 6
 
+/** Wrap 0 → STEP_COUNT, STEP_COUNT+1 → 1, etc. */
+export function wrapStep(n: number): number {
+  return ((n - 1 + STEP_COUNT) % STEP_COUNT) + 1
+}
+
 export const STEPS = [
   {
     body: 'What is SVG? How to optimize the SVG file for export. Export settings explained in detail. How to export SVG from Affinity Designer. Scalable vector graphics keep edges crisp at any size.',

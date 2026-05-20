@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import arrowImg from './assets/arrow.png'
 import { LunaChrome } from './luna/LunaChrome'
-import { STEP_COUNT, STEPS } from './steps'
+import { STEP_COUNT, STEPS, wrapStep } from './steps'
 import { setHashForStep, stepFromHash } from './stepHash'
 import './App.css'
 
@@ -72,7 +72,7 @@ function App() {
 
   const go = useCallback(
     (delta: number) => {
-      setStep((s) => s + delta)
+      setStep((s) => wrapStep(s + delta))
     },
     [setStep],
   )
@@ -93,8 +93,9 @@ function App() {
 
   const label = `STEP ${step}`
   const copy = STEPS[step - 1]?.body ?? ''
-  const isFirst = step === 1
-  const isLast = step === STEP_COUNT
+  const prevStep = wrapStep(step - 1)
+  const nextStep = wrapStep(step + 1)
+
   return (
     <LunaChrome>
       <div className="luna-stage luna-stage--fill">
@@ -116,8 +117,7 @@ function App() {
                 <button
                   type="button"
                   className="nav-btn"
-                  aria-label="Previous step"
-                  disabled={isFirst}
+                  aria-label={`Go to step ${prevStep}`}
                   onClick={() => go(-1)}
                 >
                   <img
@@ -130,8 +130,7 @@ function App() {
                 <button
                   type="button"
                   className="nav-btn"
-                  aria-label="Next step"
-                  disabled={isLast}
+                  aria-label={`Go to step ${nextStep}`}
                   onClick={() => go(1)}
                 >
                   <img

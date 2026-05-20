@@ -1,8 +1,10 @@
 import { useCallback, useEffect, useState } from 'react'
 import arrowImg from './assets/arrow.png'
 import { LunaChrome } from './luna/LunaChrome'
+import { notifyParentStep } from './parentBridge'
 import { STEP_COUNT, STEPS, wrapStep } from './steps'
 import { setHashForStep, stepFromHash } from './stepHash'
+import { useParentBridge } from './useParentBridge'
 import './App.css'
 
 const STORAGE_KEY = 'atencium-step'
@@ -40,6 +42,7 @@ function useStepSynced() {
           /* ignore */
         }
         setHashForStep(clamped, options?.replaceHash ?? false)
+        notifyParentStep(clamped)
         return clamped
       })
     },
@@ -57,6 +60,7 @@ function useStepSynced() {
         } catch {
           /* ignore */
         }
+        notifyParentStep(fromHash)
         return fromHash
       })
     }
@@ -69,6 +73,7 @@ function useStepSynced() {
 
 function App() {
   const [step, setStep] = useStepSynced()
+  useParentBridge(step, setStep)
 
   const go = useCallback(
     (delta: number) => {

@@ -7,21 +7,21 @@ export function wrapStep(n: number): number {
 
 export const STEPS = [
   {
-    body: 'What is SVG? How to optimize the SVG file for export. Export settings explained in detail. How to export SVG from Affinity Designer. Scalable vector graphics keep edges crisp at any size.',
+    body: 'The left story column introduces each step—title and description beside the live app in the center, kept in sync as you move through the flow.',
   },
   {
-    body: 'SVG is XML-based: paths, shapes, and text stay editable. Prefer shapes and paths over embedded raster images. Name layers clearly before export so structure survives in the file.',
+    body: 'Each step is displayed within the waypoint sidebar. If you are lost you can easily find a waypoint.',
   },
   {
-    body: 'Flatten unnecessary effects, merge redundant paths, and remove hidden layers. Set a sensible viewBox and document size. Strip metadata and editor-specific junk when the spec allows.',
+    body: 'Clicking start will jump you ahead in the flow.',
   },
   {
-    body: 'Use “SVG for web” or equivalent presets where available. Prefer decimal precision that balances file size and smooth curves. Enable minification and responsive sizing in the export dialog.',
+    body: 'Move back and forth at anytime.',
   },
   {
-    body: 'In Affinity Designer, use Export Persona or File → Export. Pick SVG, set resampling and DPI only when rasterized areas exist. Preview in a browser and validate with an SVG linter.',
+    body: 'No more need for design app prototypes, moving onwards towards code based interactable flows.',
   },
   {
-    body: 'You now have a repeatable workflow: design → simplify → export → verify. Reuse these settings across projects and keep a checklist so nothing slips through on tight deadlines.',
+    body: 'Made with Vite, React, Typescript, JSON.',
   },
 ] as const

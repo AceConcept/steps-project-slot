@@ -1,10 +1,3 @@
-export const STEP_COUNT = 6
-
-/** Wrap 0 → STEP_COUNT, STEP_COUNT+1 → 1, etc. */
-export function wrapStep(n: number): number {
-  return ((n - 1 + STEP_COUNT) % STEP_COUNT) + 1
-}
-
 export const STEPS = [
   {
     body: 'The left story column introduces each step—title and description beside the live app in the center, kept in sync as you move through the flow.',
@@ -18,10 +11,11 @@ export const STEPS = [
   {
     body: 'Move back and forth at anytime.',
   },
-  {
-    body: 'No more need for design app prototypes, moving onwards towards code based interactable flows.',
-  },
-  {
-    body: 'Made with Vite, React, Typescript, JSON.',
-  },
 ] as const
+
+export const STEP_COUNT = STEPS.length
+
+/** Wrap 0 → STEP_COUNT, STEP_COUNT+1 → 1, etc. */
+export function wrapStep(n: number): number {
+  return ((n - 1 + STEP_COUNT) % STEP_COUNT) + 1
+}
